@@ -12,6 +12,7 @@ import {
   Connection,
   MarkerType,
 } from '@xyflow/react';
+import { Globe, Brain, Building, FileText, Target } from 'lucide-react';
 import '@xyflow/react/dist/style.css';
 
 const initialNodes: Node[] = [
@@ -22,11 +23,11 @@ const initialNodes: Node[] = [
       label: (
         <div className="flex flex-col items-center space-y-2 p-3">
           <div className="p-2 rounded-full bg-danger/20">
-            <span className="text-lg">🕷️</span>
+            <Globe className="h-5 w-5 text-danger" />
           </div>
           <div className="text-center">
-            <div className="font-semibold text-sm">Dark Web Scraping</div>
-            <div className="text-xs text-muted-foreground">Monitor ransomware sites</div>
+            <div className="font-semibold text-sm">Dark Web Monitoring</div>
+            <div className="text-xs text-muted-foreground">Ransomware site tracking</div>
           </div>
         </div>
       )
@@ -45,8 +46,8 @@ const initialNodes: Node[] = [
     data: { 
       label: (
         <div className="flex flex-col items-center space-y-2 p-3">
-          <div className="p-2 rounded-full bg-cyber-blue/20">
-            <span className="text-lg">🤖</span>
+          <div className="p-2 rounded-full bg-success/20">
+            <Brain className="h-5 w-5 text-success" />
           </div>
           <div className="text-center">
             <div className="font-semibold text-sm">AI Analysis</div>
@@ -58,7 +59,7 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 0 },
     style: {
       background: 'hsl(var(--card))',
-      border: '2px solid hsl(var(--cyber-blue))',
+      border: '2px solid hsl(var(--success))',
       borderRadius: '12px',
       width: 180,
       height: 120,
@@ -69,8 +70,8 @@ const initialNodes: Node[] = [
     data: { 
       label: (
         <div className="flex flex-col items-center space-y-2 p-3">
-          <div className="p-2 rounded-full bg-cyber-purple/20">
-            <span className="text-lg">🏢</span>
+          <div className="p-2 rounded-full bg-neutral/20">
+            <Building className="h-5 w-5 text-neutral" />
           </div>
           <div className="text-center">
             <div className="font-semibold text-sm">Company Classification</div>
@@ -82,7 +83,7 @@ const initialNodes: Node[] = [
     position: { x: 500, y: 0 },
     style: {
       background: 'hsl(var(--card))',
-      border: '2px solid hsl(var(--cyber-purple))',
+      border: '2px solid hsl(var(--neutral))',
       borderRadius: '12px',
       width: 180,
       height: 120,
@@ -93,8 +94,8 @@ const initialNodes: Node[] = [
     data: { 
       label: (
         <div className="flex flex-col items-center space-y-2 p-3">
-          <div className="p-2 rounded-full bg-cyber-green/20">
-            <span className="text-lg">📊</span>
+          <div className="p-2 rounded-full bg-success/20">
+            <FileText className="h-5 w-5 text-success" />
           </div>
           <div className="text-center">
             <div className="font-semibold text-sm">SEC Data Enrichment</div>
@@ -106,7 +107,7 @@ const initialNodes: Node[] = [
     position: { x: 125, y: 200 },
     style: {
       background: 'hsl(var(--card))',
-      border: '2px solid hsl(var(--cyber-green))',
+      border: '2px solid hsl(var(--success))',
       borderRadius: '12px',
       width: 180,
       height: 120,
@@ -118,12 +119,12 @@ const initialNodes: Node[] = [
     data: { 
       label: (
         <div className="flex flex-col items-center space-y-2 p-3">
-          <div className="p-2 rounded-full bg-cyber-orange/20">
-            <span className="text-lg">⚡</span>
+          <div className="p-2 rounded-full bg-danger/20">
+            <Target className="h-5 w-5 text-danger" />
           </div>
           <div className="text-center">
-            <div className="font-semibold text-sm">Financial Impact Report</div>
-            <div className="text-xs text-muted-foreground">Risk assessment</div>
+            <div className="font-semibold text-sm">Impact Assessment</div>
+            <div className="text-xs text-muted-foreground">Risk & financial analysis</div>
           </div>
         </div>
       )
@@ -131,7 +132,7 @@ const initialNodes: Node[] = [
     position: { x: 375, y: 200 },
     style: {
       background: 'hsl(var(--card))',
-      border: '2px solid hsl(var(--cyber-orange))',
+      border: '2px solid hsl(var(--danger))',
       borderRadius: '12px',
       width: 180,
       height: 120,
@@ -146,10 +147,10 @@ const initialEdges: Edge[] = [
     target: '2',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: 'hsl(var(--cyber-blue))', strokeWidth: 2 },
+    style: { stroke: 'hsl(var(--success))', strokeWidth: 2 },
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: 'hsl(var(--cyber-blue))',
+      color: 'hsl(var(--success))',
     },
   },
   {
@@ -158,10 +159,10 @@ const initialEdges: Edge[] = [
     target: '3',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: 'hsl(var(--cyber-purple))', strokeWidth: 2 },
+    style: { stroke: 'hsl(var(--neutral))', strokeWidth: 2 },
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: 'hsl(var(--cyber-purple))',
+      color: 'hsl(var(--neutral))',
     },
   },
   {
@@ -170,10 +171,10 @@ const initialEdges: Edge[] = [
     target: '4',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: 'hsl(var(--cyber-green))', strokeWidth: 2 },
+    style: { stroke: 'hsl(var(--success))', strokeWidth: 2 },
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: 'hsl(var(--cyber-green))',
+      color: 'hsl(var(--success))',
     },
   },
   {
@@ -182,10 +183,10 @@ const initialEdges: Edge[] = [
     target: '5',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: 'hsl(var(--cyber-orange))', strokeWidth: 2 },
+    style: { stroke: 'hsl(var(--danger))', strokeWidth: 2 },
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: 'hsl(var(--cyber-orange))',
+      color: 'hsl(var(--danger))',
     },
   },
 ];
@@ -203,7 +204,7 @@ export const AnalysisFlow = () => {
     <div className="h-full w-full">
       <div className="mb-4 space-y-2">
         <h2 className="text-2xl font-bold text-foreground flex items-center space-x-2">
-          <span className="text-cyber-green">⚙️</span>
+          <Target className="h-6 w-6 text-danger" />
           <span>Analysis Workflow</span>
         </h2>
         <p className="text-muted-foreground">
@@ -212,7 +213,7 @@ export const AnalysisFlow = () => {
       </div>
       
       <div 
-        className="rounded-xl border border-cyber-blue/20 overflow-hidden" 
+        className="rounded-xl border border-danger/20 overflow-hidden" 
         style={{ height: 'calc(100% - 80px)' }}
       >
         <ReactFlow
@@ -231,7 +232,7 @@ export const AnalysisFlow = () => {
           elementsSelectable={false}
         >
           <Background 
-            color="hsl(var(--cyber-blue))" 
+            color="hsl(var(--danger))" 
             size={1} 
             style={{ opacity: 0.1 }}
           />
@@ -244,10 +245,10 @@ export const AnalysisFlow = () => {
             nodeColor={(node) => {
               switch (node.id) {
                 case '1': return 'hsl(var(--danger))';
-                case '2': return 'hsl(var(--cyber-blue))';
-                case '3': return 'hsl(var(--cyber-purple))';
-                case '4': return 'hsl(var(--cyber-green))';
-                case '5': return 'hsl(var(--cyber-orange))';
+                case '2': return 'hsl(var(--success))';
+                case '3': return 'hsl(var(--neutral))';
+                case '4': return 'hsl(var(--success))';
+                case '5': return 'hsl(var(--danger))';
                 default: return 'hsl(var(--muted))';
               }
             }}

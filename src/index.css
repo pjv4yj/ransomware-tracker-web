@@ -8,54 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark cybersecurity theme */
-    --background: 220 27% 8%;
-    --foreground: 213 31% 91%;
+    /* Professional dark theme with red accents */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 95%;
 
-    --card: 220 21% 11%;
-    --card-foreground: 213 31% 91%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 220 21% 11%;
-    --popover-foreground: 213 31% 91%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 197 100% 60%;
-    --primary-foreground: 220 27% 8%;
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 220 15% 17%;
-    --secondary-foreground: 213 31% 91%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 220 15% 17%;
-    --muted-foreground: 213 13% 65%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 142 86% 52%;
-    --accent-foreground: 220 27% 8%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 0 75% 60%;
-    --destructive-foreground: 213 31% 91%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
-    --ring: 197 100% 60%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 84% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom cybersecurity colors */
-    --cyber-blue: 197 100% 60%;
-    --cyber-green: 142 86% 52%;
-    --cyber-purple: 268 85% 66%;
-    --cyber-orange: 31 100% 65%;
+    /* Professional color palette */
+    --danger: 0 84% 55%;
     --warning: 45 93% 58%;
-    --danger: 0 75% 60%;
+    --success: 0 0% 95%;
+    --neutral: 0 0% 50%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-purple)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--cyber-green)), hsl(var(--cyber-blue)));
-    --gradient-danger: linear-gradient(135deg, hsl(var(--danger)), hsl(var(--cyber-orange)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--danger)), hsl(0 60% 40%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--success)), hsl(0 0% 80%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--card)), hsl(0 0% 6%));
     
     /* Shadows */
-    --shadow-cyber: 0 0 20px hsl(var(--cyber-blue) / 0.3);
-    --shadow-card: 0 8px 32px hsl(220 27% 4% / 0.8);
-    --shadow-glow: 0 0 40px hsl(var(--cyber-green) / 0.2);
+    --shadow-danger: 0 0 20px hsl(var(--danger) / 0.3);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.8);
+    --shadow-glow: 0 0 40px hsl(var(--danger) / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -99,11 +97,11 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  .cyber-glow {
-    box-shadow: var(--shadow-cyber);
+  .danger-glow {
+    box-shadow: var(--shadow-danger);
   }
   
-  .card-cyber {
+  .card-professional {
     background: hsl(var(--card));
     border: 1px solid hsl(var(--border));
     box-shadow: var(--shadow-card);
@@ -118,28 +116,28 @@ All colors MUST be HSL.
     background: var(--gradient-accent);
   }
   
-  .gradient-danger {
-    background: var(--gradient-danger);
+  .gradient-subtle {
+    background: var(--gradient-subtle);
   }
   
-  .animate-pulse-cyber {
-    animation: pulse-cyber 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  .animate-pulse-danger {
+    animation: pulse-danger 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
   
-  @keyframes pulse-cyber {
+  @keyframes pulse-danger {
     0%, 100% {
       opacity: 1;
-      box-shadow: 0 0 20px hsl(var(--cyber-blue) / 0.3);
+      box-shadow: 0 0 20px hsl(var(--danger) / 0.3);
     }
     50% {
       opacity: .8;
-      box-shadow: 0 0 40px hsl(var(--cyber-blue) / 0.6);
+      box-shadow: 0 0 40px hsl(var(--danger) / 0.6);
     }
   }
 
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--cyber-blue)) hsl(var(--card));
+    scrollbar-color: hsl(var(--danger)) hsl(var(--card));
   }
 
   .custom-scrollbar::-webkit-scrollbar {
@@ -152,11 +150,11 @@ All colors MUST be HSL.
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: hsl(var(--cyber-blue));
+    background: hsl(var(--danger));
     border-radius: 3px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--cyber-blue) / 0.8);
+    background: hsl(var(--danger) / 0.8);
   }
 }
