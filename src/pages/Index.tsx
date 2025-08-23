@@ -1,5 +1,6 @@
 import { DataPanel } from "@/components/DataPanel";
 import { AnalysisFlow } from "@/components/AnalysisFlow";
+import { DarkWebSources } from "@/components/DarkWebSources";
 
 const Index = () => {
   return (
@@ -26,9 +27,14 @@ const Index = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-[calc(100vh-200px)]">
-          {/* Left Panel - Data Visualization */}
+      <main className="max-w-full mx-auto px-6 py-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 h-[calc(100vh-200px)]">
+          {/* Left Panel - Dark Web Sources */}
+          <div className="h-full overflow-y-auto pr-4 custom-scrollbar">
+            <DarkWebSources />
+          </div>
+
+          {/* Middle Panel - Data Visualization */}
           <div className="h-full overflow-y-auto pr-4 custom-scrollbar">
             <DataPanel />
           </div>
