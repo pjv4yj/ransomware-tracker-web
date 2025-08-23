@@ -157,4 +157,33 @@ All colors MUST be HSL.
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--danger) / 0.8);
   }
+
+  /* React Flow dark mode controls */
+  .react-flow__controls {
+    background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    border-radius: 8px !important;
+  }
+
+  .react-flow__controls-button {
+    background: hsl(var(--card)) !important;
+    color: hsl(var(--foreground)) !important;
+    border: none !important;
+    border-bottom: 1px solid hsl(var(--border)) !important;
+  }
+
+  .react-flow__controls-button:hover {
+    background: hsl(var(--accent)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .react-flow__controls-button:last-child {
+    border-bottom: none !important;
+  }
+
+  .react-flow__minimap {
+    background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    border-radius: 8px !important;
+  }
 }

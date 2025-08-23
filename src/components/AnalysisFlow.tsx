@@ -21,13 +21,13 @@ const initialNodes: Node[] = [
     type: 'input',
     data: { 
       label: (
-        <div className="flex flex-col items-center space-y-2 p-3">
+        <div className="flex flex-col items-center space-y-2 p-4">
           <div className="p-2 rounded-full bg-danger/20">
             <Globe className="h-5 w-5 text-danger" />
           </div>
           <div className="text-center">
-            <div className="font-semibold text-sm">Dark Web Monitoring</div>
-            <div className="text-xs text-muted-foreground">Ransomware site tracking</div>
+            <div className="font-semibold text-sm text-foreground">Dark Web Monitoring</div>
+            <div className="text-xs text-muted-foreground text-center leading-tight">Ransomware site tracking</div>
           </div>
         </div>
       )
@@ -37,21 +37,21 @@ const initialNodes: Node[] = [
       background: 'hsl(var(--card))',
       border: '2px solid hsl(var(--danger))',
       borderRadius: '12px',
-      width: 180,
-      height: 120,
+      width: 200,
+      height: 140,
     },
   },
   {
     id: '2',
     data: { 
       label: (
-        <div className="flex flex-col items-center space-y-2 p-3">
+        <div className="flex flex-col items-center space-y-2 p-4">
           <div className="p-2 rounded-full bg-success/20">
             <Brain className="h-5 w-5 text-success" />
           </div>
           <div className="text-center">
-            <div className="font-semibold text-sm">AI Analysis</div>
-            <div className="text-xs text-muted-foreground">Extract victim data</div>
+            <div className="font-semibold text-sm text-foreground">AI Analysis</div>
+            <div className="text-xs text-muted-foreground text-center leading-tight">Extract victim data</div>
           </div>
         </div>
       )
@@ -61,21 +61,21 @@ const initialNodes: Node[] = [
       background: 'hsl(var(--card))',
       border: '2px solid hsl(var(--success))',
       borderRadius: '12px',
-      width: 180,
-      height: 120,
+      width: 200,
+      height: 140,
     },
   },
   {
     id: '3',
     data: { 
       label: (
-        <div className="flex flex-col items-center space-y-2 p-3">
+        <div className="flex flex-col items-center space-y-2 p-4">
           <div className="p-2 rounded-full bg-neutral/20">
             <Building className="h-5 w-5 text-neutral" />
           </div>
           <div className="text-center">
-            <div className="font-semibold text-sm">Company Classification</div>
-            <div className="text-xs text-muted-foreground">Public vs Private</div>
+            <div className="font-semibold text-sm text-foreground">Company Classification</div>
+            <div className="text-xs text-muted-foreground text-center leading-tight">Public vs Private</div>
           </div>
         </div>
       )
@@ -85,21 +85,21 @@ const initialNodes: Node[] = [
       background: 'hsl(var(--card))',
       border: '2px solid hsl(var(--neutral))',
       borderRadius: '12px',
-      width: 180,
-      height: 120,
+      width: 200,
+      height: 140,
     },
   },
   {
     id: '4',
     data: { 
       label: (
-        <div className="flex flex-col items-center space-y-2 p-3">
+        <div className="flex flex-col items-center space-y-2 p-4">
           <div className="p-2 rounded-full bg-success/20">
             <FileText className="h-5 w-5 text-success" />
           </div>
           <div className="text-center">
-            <div className="font-semibold text-sm">SEC Data Enrichment</div>
-            <div className="text-xs text-muted-foreground">10-K filings & analysis</div>
+            <div className="font-semibold text-sm text-foreground">SEC Data Enrichment</div>
+            <div className="text-xs text-muted-foreground text-center leading-tight">10-K filings & analysis</div>
           </div>
         </div>
       )
@@ -109,8 +109,8 @@ const initialNodes: Node[] = [
       background: 'hsl(var(--card))',
       border: '2px solid hsl(var(--success))',
       borderRadius: '12px',
-      width: 180,
-      height: 120,
+      width: 200,
+      height: 140,
     },
   },
   {
@@ -118,13 +118,13 @@ const initialNodes: Node[] = [
     type: 'output',
     data: { 
       label: (
-        <div className="flex flex-col items-center space-y-2 p-3">
+        <div className="flex flex-col items-center space-y-2 p-4">
           <div className="p-2 rounded-full bg-danger/20">
             <Target className="h-5 w-5 text-danger" />
           </div>
           <div className="text-center">
-            <div className="font-semibold text-sm">Impact Assessment</div>
-            <div className="text-xs text-muted-foreground">Risk & financial analysis</div>
+            <div className="font-semibold text-sm text-foreground">Impact Assessment</div>
+            <div className="text-xs text-muted-foreground text-center leading-tight">Risk & financial analysis</div>
           </div>
         </div>
       )
@@ -134,8 +134,8 @@ const initialNodes: Node[] = [
       background: 'hsl(var(--card))',
       border: '2px solid hsl(var(--danger))',
       borderRadius: '12px',
-      width: 180,
-      height: 120,
+      width: 200,
+      height: 140,
     },
   },
 ];
