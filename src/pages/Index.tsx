@@ -15,12 +15,12 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-foreground">EarlyBird</h1>
-                <p className="text-xs text-muted-foreground">Ransomware threat intelligence</p>
+                <p className="text-xs text-muted-foreground">Financial intelligence for ransomware attacks</p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 rounded-full bg-danger animate-pulse-danger"></div>
-              <span className="text-sm text-danger font-medium">Live Monitoring</span>
+              <span className="text-sm text-danger font-medium">Market Intelligence</span>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ const Index = () => {
             <DarkWebSources />
           </div>
 
-          {/* Middle Panel - Data Visualization */}
+          {/* Middle Panel - Investment Intelligence */}
           <div className="h-full overflow-y-auto pr-4 custom-scrollbar">
             <DataPanel />
           </div>

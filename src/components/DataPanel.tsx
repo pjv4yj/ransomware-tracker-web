@@ -154,9 +154,9 @@ export const DataPanel = () => {
         <div className="space-y-2">
           <h2 className="text-2xl font-bold text-foreground flex items-center space-x-2">
             <Shield className="h-6 w-6 text-danger" />
-            <span>Threat Intelligence</span>
+            <span>Investment Intelligence</span>
           </h2>
-          <p className="text-muted-foreground">Loading ransomware analysis data...</p>
+          <p className="text-muted-foreground">Loading market intelligence data...</p>
         </div>
         <div className="grid grid-cols-2 gap-4">
           {[...Array(4)].map((_, i) => (
@@ -184,10 +184,10 @@ export const DataPanel = () => {
       <div className="space-y-2">
         <h2 className="text-2xl font-bold text-foreground flex items-center space-x-2">
           <Shield className="h-6 w-6 text-danger" />
-          <span>Threat Intelligence</span>
+          <span>Investment Intelligence</span>
         </h2>
         <p className="text-muted-foreground">
-          Real-time analysis of ransomware attacks and financial impact assessment
+          Real-time ransomware attack monitoring for pre-market investment opportunities
         </p>
       </div>
 
@@ -195,31 +195,31 @@ export const DataPanel = () => {
       <div className="grid grid-cols-2 gap-4">
         <MetricCard
           icon={AlertTriangle}
-          title="Total Victims"
+          title="Investment Targets"
           value={totalVictims}
           trend="up"
-          description="Companies affected"
+          description="Companies to monitor"
         />
         <MetricCard
           icon={Building2}
           title="Public Companies"
           value={totalPublic}
           trend="up"
-          description="SEC filing impact"
+          description="Shortable positions"
         />
         <MetricCard
           icon={Eye}
           title="Confirmed Leaks"
           value={totalLeaks}
           trend="up"
-          description="Data breaches verified"
+          description="High-impact events"
         />
         <MetricCard
           icon={Users}
           title="Active Groups"
           value={uniqueGroups.length}
           trend="neutral"
-          description="Ransomware operators"
+          description="Market threat actors"
         />
       </div>
 
