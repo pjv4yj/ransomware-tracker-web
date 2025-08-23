@@ -8,35 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark cybersecurity theme */
+    --background: 220 27% 8%;
+    --foreground: 213 31% 91%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 21% 11%;
+    --card-foreground: 213 31% 91%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 21% 11%;
+    --popover-foreground: 213 31% 91%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 197 100% 60%;
+    --primary-foreground: 220 27% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 15% 17%;
+    --secondary-foreground: 213 31% 91%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 17%;
+    --muted-foreground: 213 13% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 86% 52%;
+    --accent-foreground: 220 27% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 213 31% 91%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 197 100% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom cybersecurity colors */
+    --cyber-blue: 197 100% 60%;
+    --cyber-green: 142 86% 52%;
+    --cyber-purple: 268 85% 66%;
+    --cyber-orange: 31 100% 65%;
+    --warning: 45 93% 58%;
+    --danger: 0 75% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-purple)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--cyber-green)), hsl(var(--cyber-blue)));
+    --gradient-danger: linear-gradient(135deg, hsl(var(--danger)), hsl(var(--cyber-orange)));
+    
+    /* Shadows */
+    --shadow-cyber: 0 0 20px hsl(var(--cyber-blue) / 0.3);
+    --shadow-card: 0 8px 32px hsl(220 27% 4% / 0.8);
+    --shadow-glow: 0 0 40px hsl(var(--cyber-green) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +78,7 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Keep same colors since we're dark by default */
   }
 }
 
@@ -101,5 +89,74 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer components {
+  .cyber-glow {
+    box-shadow: var(--shadow-cyber);
+  }
+  
+  .card-cyber {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(10px);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-danger {
+    background: var(--gradient-danger);
+  }
+  
+  .animate-pulse-cyber {
+    animation: pulse-cyber 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-cyber {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 20px hsl(var(--cyber-blue) / 0.3);
+    }
+    50% {
+      opacity: .8;
+      box-shadow: 0 0 40px hsl(var(--cyber-blue) / 0.6);
+    }
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--cyber-blue)) hsl(var(--card));
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--card));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--cyber-blue));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--cyber-blue) / 0.8);
   }
 }
