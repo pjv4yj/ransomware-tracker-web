@@ -1,78 +1,70 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AlertTriangle, Building2, Eye, TrendingUp, Users, Shield } from "lucide-react";
+import { useState, useEffect } from "react";
 
-// Mock data - in real app this would come from props or API
-const attackData = [
-  {
-    source_url: "http://5butbkrljkaorg5maepuca25oma7eiwo6a2rlhvkblb4v6mf3ki2ovid.onion/",
-    victims: [
-      {
-        company_name: "Ambitek",
-        is_public: false,
-        date_impacted: "2025-08-21",
-        data_leaked: "yes",
-        industry: "Staffing & Recruiting",
-        ransomware_group: "Space Bears"
-      },
-      {
-        company_name: "All Truck Transportation Co",
-        is_public: false,
-        date_impacted: "2025-08-21",
-        data_leaked: "yes",
-        industry: "Transportation",
-        ransomware_group: "Space Bears"
-      }
-    ],
-    analysis_summary: "The analysis identified two companies impacted by the Space Bears ransomware group...",
-    total_victims: 2,
-    public_companies: 0,
-    private_companies: 2,
-    confirmed_leaks: 2
-  },
-  {
-    source_url: "http://7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.onion/",
-    victims: [
-      {
-        company_name: "Insurance Office of America (US)",
-        is_public: false,
-        date_impacted: "Unknown",
-        data_leaked: "yes",
-        ransomware_group: "DAIXIN Team"
-      },
-      {
-        company_name: "SGS Co. (US)",
-        is_public: true,
-        date_impacted: "Unknown",
-        data_leaked: "yes",
-        sec_10k_data: {
-          filing_type: "Integrated Report",
-          filing_date: "February 11, 2025",
-          filing_url: "https://sustainabilityreports.com/reports/sgs-sa-2024-integrated-report-pdf/",
-          summary: "The 2024 Integrated Report highlights SGS's financial and sustainable performance..."
-        },
-        ransomware_group: "DAIXIN Team"
-      },
-      {
-        company_name: "B&G Foods, Inc. (US, CA)",
-        is_public: true,
-        date_impacted: "Unknown",
-        data_leaked: "yes",
-        sec_10k_data: {
-          filing_type: "10-K",
-          filing_date: "February 28, 2024",
-          filing_url: "https://bgfoods.gcs-web.com/sec-filings/sec-filing/10-k/0001558370-24-001996",
-          summary: "The comprehensive annual report provides an overview of B&G Foods' financial performance..."
-        },
-        ransomware_group: "DAIXIN Team"
-      }
-    ],
-    total_victims: 19,
-    public_companies: 3,
-    private_companies: 16,
-    confirmed_leaks: 19
-  }
+interface Victim {
+  company_name: string;
+  is_public: boolean;
+  date_impacted: string;
+  data_leaked: string;
+  industry?: string;
+  sec_10k_data?: {
+    filing_type: string;
+    filing_date: string;
+    filing_url: string;
+    summary: string;
+  };
+  ransomware_group: string;
+}
+
+interface AttackData {
+  source_url: string;
+  victims: Victim[];
+  analysis_summary: string;
+  total_victims: number;
+  public_companies: number;
+  private_companies: number;
+  confirmed_leaks: number;
+}
+
+const JSON_FILES = [
+  'ransomware_analysis_httptermiteuslbumdge2zmfmfcsrvmvsfe4gvyudc5j6cdnisnhtftvokid.json',
+  'ransomware_analysis_httpsarcomawmawlhov7o5mdhz4eszxxlkyaoiyiy2b5iwxnds2dmb4jakad.json',
+  'ransomware_analysis_httpciphbitqyg26jor7eeo6xieyq7reouctefrompp6ogvhqjba7uo4xdid.json',
+  'ransomware_analysis_httpyrz6bayqwhleymbeviter7ejccxm64sv2ppgqgderzgdhutozcbbhpqdblog.json',
+  'ransomware_analysis_http5butbkrljkaorg5maepuca25oma7eiwo6a2rlhvkblb4v6mf3ki2ovid.json',
+  'ransomware_analysis_httpebhmkoohccl45qesdbvrjqtyro2hmhkmh6vkyfyjjzfllm3ix72aqaidleaksphp.json',
+  'ransomware_analysis_httprnsm777cdsjrsdlbs4v5qoeppu3px6sb2igmh53jzrx7ipcrbjz5b2ad.json',
+  'ransomware_analysis_https47glxkuxyayqrvugfumgsblrdagvrah7gttfscgzn56eyss5wg3uvmqd.json',
+  'ransomware_analysis_http7ukmkdtyxdkdivtjad57klqnd3kdsmq6tp45rrsxqnu76zzv3jvitlqd.json',
+  'ransomware_analysis_httpnitrogenczslprh3xyw6lh5xyjvmsz7ciljoqxxknd7uymkfetfhgvqd.json'
 ];
+
+const useAttackData = () => {
+  const [attackData, setAttackData] = useState<AttackData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const promises = JSON_FILES.map(filename => 
+          fetch(`/data/${filename}`).then(res => res.json())
+        );
+        const results = await Promise.all(promises);
+        setAttackData(results.filter(data => data.total_victims > 0)); // Only show data with victims
+        setLoading(false);
+      } catch (error) {
+        console.error('Failed to load attack data:', error);
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  return { attackData, loading };
+};
 
 const MetricCard = ({ icon: Icon, title, value, trend, description }: {
   icon: any;
@@ -154,6 +146,31 @@ const VictimCard = ({ victim, groupName }: { victim: any; groupName: string }) =
 );
 
 export const DataPanel = () => {
+  const { attackData, loading } = useAttackData();
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-2xl font-bold text-foreground flex items-center space-x-2">
+            <Shield className="h-6 w-6 text-danger" />
+            <span>Threat Intelligence</span>
+          </h2>
+          <p className="text-muted-foreground">Loading ransomware analysis data...</p>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          {[...Array(4)].map((_, i) => (
+            <Card key={i} className="card-professional animate-pulse">
+              <CardContent className="p-4">
+                <div className="h-20 bg-muted/20 rounded"></div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   const totalVictims = attackData.reduce((sum, attack) => sum + attack.total_victims, 0);
   const totalPublic = attackData.reduce((sum, attack) => sum + attack.public_companies, 0);
   const totalLeaks = attackData.reduce((sum, attack) => sum + attack.confirmed_leaks, 0);
@@ -208,15 +225,19 @@ export const DataPanel = () => {
 
       {/* Attack Data */}
       <div className="space-y-4">
-        {attackData.map((attack, attackIndex) => (
+        {attackData.map((attack, attackIndex) => {
+          const groupName = attack.victims[0]?.ransomware_group || 'Unknown';
+          const cleanUrl = attack.source_url.replace(/^https?:\/\//, '').split('/')[0];
+          
+          return (
             <Card key={attackIndex} className="card-professional">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg text-foreground">
-                    Attack Source #{attackIndex + 1}
+                    {groupName}
                   </CardTitle>
-                  <Badge variant="outline" className="text-success border-success/50">
-                    {attack.victims[0]?.ransomware_group}
+                  <Badge variant="outline" className="text-success border-success/50 text-xs">
+                    {cleanUrl.slice(0, 16)}...
                   </Badge>
                 </div>
               <div className="flex items-center space-x-4 text-sm text-muted-foreground">
@@ -244,7 +265,8 @@ export const DataPanel = () => {
               )}
             </CardContent>
           </Card>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
