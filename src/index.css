@@ -163,6 +163,7 @@ All colors MUST be HSL.
     background: hsl(var(--card)) !important;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 8px !important;
+    box-shadow: var(--shadow-card) !important;
   }
 
   .react-flow__controls-button {
@@ -170,20 +171,45 @@ All colors MUST be HSL.
     color: hsl(var(--foreground)) !important;
     border: none !important;
     border-bottom: 1px solid hsl(var(--border)) !important;
+    fill: hsl(var(--foreground)) !important;
   }
 
   .react-flow__controls-button:hover {
     background: hsl(var(--accent)) !important;
     color: hsl(var(--foreground)) !important;
+    fill: hsl(var(--foreground)) !important;
   }
 
   .react-flow__controls-button:last-child {
     border-bottom: none !important;
   }
 
+  .react-flow__controls-button svg {
+    fill: hsl(var(--foreground)) !important;
+  }
+
+  .react-flow__controls-button:hover svg {
+    fill: hsl(var(--foreground)) !important;
+  }
+
   .react-flow__minimap {
     background: hsl(var(--card)) !important;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 8px !important;
+    box-shadow: var(--shadow-card) !important;
+  }
+
+  /* Force dark mode on all React Flow UI elements */
+  .react-flow .react-flow__controls,
+  .react-flow .react-flow__controls-button,
+  .react-flow .react-flow__minimap {
+    background: hsl(var(--card)) !important;
+    color: hsl(var(--foreground)) !important;
+    border-color: hsl(var(--border)) !important;
+  }
+
+  .react-flow .react-flow__controls-button svg {
+    fill: hsl(var(--foreground)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 }
