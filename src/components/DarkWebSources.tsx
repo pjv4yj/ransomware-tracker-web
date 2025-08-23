@@ -89,9 +89,6 @@ export const DarkWebSources = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium text-muted-foreground mb-1">
-                    {source.name}
-                  </div>
                   <div className="text-xs font-mono text-foreground break-all group-hover:text-danger transition-colors">
                     {source.url}
                   </div>
