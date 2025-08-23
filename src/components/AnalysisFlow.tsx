@@ -236,7 +236,13 @@ export const AnalysisFlow = () => {
             size={1} 
             style={{ opacity: 0.1 }}
           />
-          <Controls />
+          <Controls 
+            style={{
+              background: 'hsl(var(--card))',
+              border: '1px solid hsl(var(--border))',
+              borderRadius: '8px',
+            }}
+          />
           <MiniMap 
             style={{
               backgroundColor: 'hsl(var(--card))',

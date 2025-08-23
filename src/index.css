@@ -158,15 +158,19 @@ All colors MUST be HSL.
     background: hsl(var(--danger) / 0.8);
   }
 
-  /* React Flow dark mode controls */
-  .react-flow__controls {
+  /* React Flow dark mode controls - NUCLEAR OVERRIDE */
+  .react-flow__controls,
+  div[class*="react-flow__controls"],
+  [class*="react-flow"] [class*="controls"] {
     background: hsl(var(--card)) !important;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 8px !important;
     box-shadow: var(--shadow-card) !important;
   }
 
-  .react-flow__controls-button {
+  .react-flow__controls-button,
+  button[class*="react-flow__controls-button"],
+  [class*="react-flow"] [class*="controls"] button {
     background: hsl(var(--card)) !important;
     color: hsl(var(--foreground)) !important;
     border: none !important;
@@ -174,42 +178,50 @@ All colors MUST be HSL.
     fill: hsl(var(--foreground)) !important;
   }
 
-  .react-flow__controls-button:hover {
+  .react-flow__controls-button:hover,
+  button[class*="react-flow__controls-button"]:hover,
+  [class*="react-flow"] [class*="controls"] button:hover {
     background: hsl(var(--accent)) !important;
     color: hsl(var(--foreground)) !important;
     fill: hsl(var(--foreground)) !important;
   }
 
-  .react-flow__controls-button:last-child {
+  .react-flow__controls-button:last-child,
+  button[class*="react-flow__controls-button"]:last-child {
     border-bottom: none !important;
   }
 
-  .react-flow__controls-button svg {
+  .react-flow__controls-button svg,
+  button[class*="react-flow__controls-button"] svg,
+  [class*="react-flow"] [class*="controls"] button svg {
     fill: hsl(var(--foreground)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 
-  .react-flow__controls-button:hover svg {
+  .react-flow__controls-button:hover svg,
+  button[class*="react-flow__controls-button"]:hover svg,
+  [class*="react-flow"] [class*="controls"] button:hover svg {
     fill: hsl(var(--foreground)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 
-  .react-flow__minimap {
+  .react-flow__minimap,
+  div[class*="react-flow__minimap"] {
     background: hsl(var(--card)) !important;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 8px !important;
     box-shadow: var(--shadow-card) !important;
   }
 
-  /* Force dark mode on all React Flow UI elements */
-  .react-flow .react-flow__controls,
-  .react-flow .react-flow__controls-button,
-  .react-flow .react-flow__minimap {
-    background: hsl(var(--card)) !important;
-    color: hsl(var(--foreground)) !important;
-    border-color: hsl(var(--border)) !important;
-  }
-
-  .react-flow .react-flow__controls-button svg {
-    fill: hsl(var(--foreground)) !important;
-    color: hsl(var(--foreground)) !important;
+  /* Override React Flow's internal CSS variables */
+  .react-flow {
+    --rf-node-bg: hsl(var(--card));
+    --rf-node-border: hsl(var(--border));
+    --rf-node-color: hsl(var(--foreground));
+    --rf-controls-bg: hsl(var(--card));
+    --rf-controls-border: hsl(var(--border));
+    --rf-controls-button-bg: hsl(var(--card));
+    --rf-controls-button-color: hsl(var(--foreground));
+    --rf-minimap-bg: hsl(var(--card));
   }
 }
