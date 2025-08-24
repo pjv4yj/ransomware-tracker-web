@@ -1,10 +1,14 @@
 import { DataPanel } from "@/components/DataPanel";
 import { AnalysisFlow } from "@/components/AnalysisFlow";
 import { DarkWebSources } from "@/components/DarkWebSources";
+import ScrollingBanner from "@/components/ScrollingBanner";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Scrolling Banner */}
+      <ScrollingBanner />
+      
       {/* Header */}
       <header className="border-b border-danger/20 bg-card/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
